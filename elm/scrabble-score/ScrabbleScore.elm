@@ -90,4 +90,5 @@ scoreChar c =
 
 scoreWord : String -> Int
 scoreWord s =
-    String.toList s |> List.map scoreChar |> List.sum
+    String.toUpper s
+        |> String.foldl (\c score -> score + scoreChar c) 0
